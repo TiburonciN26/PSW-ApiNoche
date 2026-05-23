@@ -49,13 +49,19 @@
         if(count($routesArray) == 2 &&
             isset($_SERVER["REQUEST_METHOD"]) &&
             $_SERVER["REQUEST_METHOD"] == "POST"){
-            
-            $json = array(
+            if(isset($_POST))
+                {
+                    $tabla => explode("?", $routesArray[2])[0],
+                    $response = new PostController();
+                    $response->PostData($tabla, $_POST);
+                }
+
+           /*  $json = array(
                     "status" => 200,
-                    "result" => "POST"
+                    "result" => $_POST
             );
             echo json_encode($json, http_response_code($json["status"]));
-            return;
+            return; */
         }
                 
         //ACCEDIENDO POR EL METODO PUT
