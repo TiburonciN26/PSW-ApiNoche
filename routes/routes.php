@@ -51,7 +51,7 @@
             $_SERVER["REQUEST_METHOD"] == "POST"){
             if(isset($_POST))
                 {
-                    $tabla => explode("?", $routesArray[2])[0],
+                    $tabla = explode("?", $routesArray[2])[0];
                     $response = new PostController();
                     $response->PostData($tabla, $_POST);
                 }
